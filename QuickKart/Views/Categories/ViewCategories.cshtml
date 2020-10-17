@@ -1,0 +1,32 @@
+﻿@model IEnumerable<QuickKart.Models.Categories>
+
+@{
+    ViewData["Title"] = "ViewCategories";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ViewCategories</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "UpdateCategories",new { CategoryName = item.CategoryName }) |
+                @Html.ActionLink("Delete", "DeleteCategories", new { CategoryName = item.CategoryName })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
